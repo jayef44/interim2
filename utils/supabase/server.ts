@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 import { cookies } from 'next/headers'
 
 export async function createServerSupabase() {
-  const cookieStore = await cookies()
+  const cookieStore = await cookies() // Await para sa Next.js 15
 
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

@@ -1,14 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020617;
+  --color-foreground: #f8fafc;
+  --color-accent: #3b82f6;
+}
 
 :root {
-  --background: #020617; /* Slate 950 */
+  --background: #020617;
   --foreground: #f8fafc;
 }
 
 body {
   background: var(--background);
+  /* Mesh Background Effect */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom Utilities - Inalis ang @apply sa mga complex colors para iwas error */
+@utility glass-card {
+  background-color: rgba(15, 23, 42, 0.4); /* slate-900 equivalent */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.5); /* slate-800 equivalent */
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
+
+@utility glass-card-hover {
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+}
+
+@utility gym-btn {
+  background-color: #2563eb;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+  
+  &:hover {
+    background-color: #3b82f6;
+    transform: translateY(-2px);
+  }
+}
+
+@utility gym-input {
+  background-color: rgba(2, 6, 23, 0.5);
+  border: 1px solid #1e293b;
+  border-radius: 0.75rem;
+  padding: 0.85rem;
+  outline: none;
+  transition: all 0.2s;
+  color: white;
+
+  &:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
 }
