@@ -4,7 +4,7 @@ import StudentForm from '@/components/MemberForm';
 
 export default function CreateStudentPage() {
   const handleSubmit = async (data: any) => {
-    const res = await fetch('/api/students', {
+    const res = await fetch('/api/members', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

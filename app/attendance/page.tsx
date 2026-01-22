@@ -1,4 +1,4 @@
-import { createServerSupabase } from '@/lib/supabase/server'
+import { createServerSupabase } from '@/utils/supabase/server'
 
 interface Log {
   attendance_id: number
@@ -7,7 +7,7 @@ interface Log {
 }
 
 export default async function AttendancePage() {
-  const supabase = createServerSupabase()
+  const supabase = await createServerSupabase()
 
   const { data } = await supabase
     .from('attendance')
@@ -17,7 +17,7 @@ export default async function AttendancePage() {
       class ( class_name )
     `)
 
-  const logs = (data || []) as Log[]
+  const logs = (data || []) as unknown as Log[]
 
   return (
     <div className="p-10 bg-slate-950 min-h-screen">

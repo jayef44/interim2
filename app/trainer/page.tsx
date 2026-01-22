@@ -1,11 +1,11 @@
-import { createClient } from '@/utils/supabase/server';
+import { createServerSupabase } from '@/utils/supabase/server';
 import MemberTable from '@/components/MemberTable';
 import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Page() {
-  const supabase = await createClient(); // Await the updated client
+  const supabase = await createServerSupabase(); // Await the updated client
 
   const { data: memberData, error } = await supabase
     .from('member') 

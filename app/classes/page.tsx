@@ -1,9 +1,7 @@
-import { createClient } from '@/utils/supabase/server';
-import { cookies } from 'next/headers';
+import { createServerSupabase } from '@/utils/supabase/server';
 
 export default async function ClassesPage() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = await createServerSupabase();
 
   // Joining class with trainer to get coach names
   const { data: classes } = await supabase

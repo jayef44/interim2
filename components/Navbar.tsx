@@ -9,7 +9,7 @@ export default function Navbar() {
         </Link>
         <div className="space-x-6 text-sm font-bold uppercase text-slate-400">
           <Link href="/" className="hover:text-white transition-colors">Members</Link>
-          <Link href="/trainers" className="hover:text-white transition-colors">Trainers</Link>
+          <Link href="/trainer" className="hover:text-white transition-colors">Trainers</Link>
           <Link href="/classes" className="hover:text-white transition-colors">Classes</Link>
           <Link href="/attendance" className="hover:text-white transition-colors">Attendance</Link>
         </div>

@@ -1,11 +1,11 @@
-import { createServerSupabase } from '@/lib/supabase/server'
+import { createServerSupabase } from '@/utils/supabase/server'
 import MemberTable from '@/components/MemberTable'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
 export default async function Page() {
-  const supabase = createServerSupabase()
+  const supabase = await createServerSupabase()
 
   const { data, error } = await supabase
     .from('member')
